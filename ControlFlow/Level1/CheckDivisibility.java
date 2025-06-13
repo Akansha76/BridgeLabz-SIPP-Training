@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class DivisibleByFive {
+public class CheckDivisibility {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -15,6 +15,6 @@ public class DivisibleByFive {
             System.out.println("Is the number " + number + " divisible by 5? No");
         }
 
-        scanner.close();
+      
     }
 }
