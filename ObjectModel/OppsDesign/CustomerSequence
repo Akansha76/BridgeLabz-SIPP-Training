@@ -1,0 +1,17 @@
+The sequence diagram shows the process of bill generation for a customer.
+Scenario: A customer checks out at the grocery store, and the total bill is generated.
+Actors:
+Customer
+BillGenerator
+→ Draw the Sequence Diagram
+
+
+
+Customer          BillGenerator
+   |                    |
+   |-- generateBill(products) -->|
+   |                    |
+   |<- calculateTotal() (internal)
+   |                    |
+   |<-- returnTotal($8) ----------|
+   |                    |

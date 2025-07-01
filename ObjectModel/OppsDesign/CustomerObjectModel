@@ -1,0 +1,29 @@
+Object Diagram
+An object diagram shows the details of a Customer and the Product objects they have purchased.
+Example:
+Customer: Alice
+Products:
+Apples (2 kg at $3 per kg)
+Milk (1 liter at $2 per liter)
+
+
+
++------------------------+
+|  :Customer             |
+|------------------------|
+| name = "Alice"         |
++------------------------+
+| products:              |
+|  - apples              |
+|  - milk                |
++------------------------+
+
+        | owns                        | owns
+        ↓                             ↓
++------------------------+   +-------------------------+
+|  :Product               |   |  :Product               |
+|------------------------|   |-------------------------|
+| name = "Apples"         |   | name = "Milk"           |
+| quantity = 2            |   | quantity = 1            |
+| pricePerUnit = 3        |   | pricePerUnit = 2        |
++------------------------+   +-------------------------+

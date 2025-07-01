@@ -1,0 +1,30 @@
+Object Diagram
+An object diagram provides a snapshot of the Student and their Subject objects at a particular point.
+Example:
+Student: John
+Subjects: Maths, Science
+Marks: 90, 85
+→ Draw the Object Diagram
+  
+  
+
+  
+  +--------------------------+
+  |      :Student            |
+  |--------------------------|
+  | name = "John"            |
+  |                          |
+  | subjects = [             |
+  |   Maths: 90,             |
+  |   Science: 85            |
+  | ]                        |
+  +--------------------------+
+
+     | owns                      | owns
+     ↓                          ↓
++----------------+       +----------------+
+|   :Subject     |       |   :Subject     |
+|----------------|       |----------------|
+| name = "Maths" |       | name = "Science"|
+| marks = 90     |       | marks = 85      |
++----------------+       +----------------+

@@ -1,0 +1,58 @@
+1. Student
+Attributes:
+
+name: String
+
+rollNo: int
+
+subjects: List<Subject>
+
+Methods:
+
+addSubject(subject: Subject): void
+
+getSubjects(): List<Subject>
+
+2. Subject
+Attributes:
+
+name: String
+
+marks: int
+
+3. GradeCalculator
+Methods:
+
+calculateGrade(student: Student): String
+
+ Relationships
+Aggregation:
+Student ∘───▶ Subject
+(a student "has-a" list of subjects; subjects can exist independently)
+
+Association:
+GradeCalculator ───▶ Student
+(calculator uses the student to access subjects and marks)
+
+
++----------------+           +----------------+            +----------------------+
+|   Student      |<>-------->|   Subject      |            |   GradeCalculator    |
++----------------+           +----------------+            +----------------------+
+| - name: String |           | - name: String |            |                      |
+| - rollNo: int  |           | - marks: int   |            +----------------------+
+| - subjects:    |                                          | + calculateGrade(   |
+|   List<Subject>|                                          |   student: Student):|
++----------------+                                          |   String             |
+| + addSubject() |                                          +----------------------+
+| + getSubjects()|
++----------------+
+
+
+<>───────: Aggregation (white diamond)
+
+─────────>: Association
+
++: public
+
+-: private
+

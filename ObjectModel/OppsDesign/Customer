@@ -1,0 +1,31 @@
+Class Diagram
+The class diagram models the system where a customer buys products, and the bill is generated.
+Diagram Description:
+Classes: Customer, Product, BillGenerator
+Relationships:
+A Customer can purchase multiple Product items (Composition).
+BillGenerator computes the total for the Customer.
+
+
+
++------------------+            +----------------+
+|    Customer      |<>--------->|   Product      |
++------------------+            +----------------+
+| - name: String   |            | - name: String |
+| - products: List |            | - quantity: int|
+|                  |            | - pricePerUnit: double |
++------------------+            +----------------+
+| +addProduct()    |
+| +getProducts()   |
++------------------+
+
+       |
+       |
+       v uses
++----------------------+
+|   BillGenerator      |
++----------------------+
+| +generateBill(c:Customer): double |
++----------------------+
+
+
