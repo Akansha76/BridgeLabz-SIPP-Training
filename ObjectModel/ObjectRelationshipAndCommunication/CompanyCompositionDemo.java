@@ -13,7 +13,7 @@ public class CompanyCompositionDemo {
         }
 
         public void display() {
-            System.out.println("👤 " + name + " — " + position);
+            System.out.println( name + " — " + position);
         }
     }
 
