@@ -1,4 +1,4 @@
-package Inheritance;
+//package Inheritance;
 
 class Book{
    String title="";
@@ -28,7 +28,7 @@ class Author extends Book{
 }
 
 
-public class library {
+public class Single{
     public static void main(String[] args) {
         Author a1=new Author("The sun in the east",2011,"Harry","Difficult");
         a1.AuthorInfo();

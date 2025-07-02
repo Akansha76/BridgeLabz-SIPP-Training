@@ -1,4 +1,3 @@
-// Superclass
 package Inheritance;
 class Animal {
     String name;
