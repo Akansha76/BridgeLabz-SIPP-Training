@@ -1,4 +1,4 @@
-package Inheritance;
+//package Inheritance;
 
 class BankAccount {
     protected int accountNumber;
