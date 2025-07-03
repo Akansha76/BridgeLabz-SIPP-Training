@@ -45,8 +45,8 @@ class EBook extends Book {
         System.out.println("EBook Details:");
         System.out.println("ISBN: " + ISBN);           // public - directly accessible
         System.out.println("Title: " + title);         // protected - directly accessible
-        // System.out.println("Author: " + author);    // ❌ Not allowed: 'author' is private
-        System.out.println("Author: " + getAuthor());  // ✅ Access private member using public method
+        // System.out.println("Author: " + author);    //  Not allowed: 'author' is private
+        System.out.println("Author: " + getAuthor());  // Access private member using public method
         System.out.println("File Format: " + fileFormat);
     }
 }
