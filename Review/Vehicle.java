@@ -21,7 +21,6 @@ abstract class VehicleManagement {
     }
     public abstract double calculateServiceCost();
 
-
     public void printServiceDetails() {
         System.out.printf(
             "Brand: %-10s | Model: %-15s | Fuel: %-8s | Next service cost: %.2f%n",
