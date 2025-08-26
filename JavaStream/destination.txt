@@ -1,0 +1,3 @@
+Hello, this is a test file.
+Java File Handling is very useful!
+This text will be copied to another file.

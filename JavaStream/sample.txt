@@ -1,0 +1,2 @@
+Java is simple. Java is powerful. Java is platform-independent.
+Java is everywhere. Learn Java for development.
