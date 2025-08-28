@@ -1,0 +1,42 @@
+abstract class Crop {
+    String name;
+
+    Crop(String name) {
+        this.name = name;
+    }
+
+    abstract int getWaterRequirement();
+    abstract void harvest();
+}
+
+class Rice extends Crop {
+    Rice() {
+        super("Rice");
+    }
+
+    int getWaterRequirement() {
+        return 500;
+    }
+
+    void harvest() {
+        print("Harvesting Rice with combine harvester.");
+    }
+}
+
+class Wheat extends Crop {
+    Wheat() {
+        super("Wheat");
+    }
+
+    int getWaterRequirement() {
+        return 300;
+    }
+
+    void harvest() {
+        print("Harvesting Wheat with sickle.");
+    }
+}
+
+Crop crop1 = new Rice();
+print(crop1.getWaterRequirement());
+crop1.harvest();

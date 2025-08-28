@@ -1,0 +1,37 @@
+Start
+
+Set number_of_questions = 5  
+Set time_per_question = 30
+
+Make a list called time_slots with size number_of_questions
+
+Set current_question = 0
+
+For each question from 0 to number_of_questions - 1
+    time_slots[question] = time_per_question
+End For
+
+Repeat 200 times:
+
+    If time_slots[current_question] > 0 then
+
+        Subtract 1 from time_slots[current_question]
+
+        If time_slots[current_question] is less than or equal to 5
+           and greater than 0 then
+            Show message: "Only [time left] seconds left for question [current]"
+        End If
+
+        If time_slots[current_question] is equal to 0 then
+            Show message: "Time is up for question [current]"
+            Move to next question:
+                current_question = (current_question + 1) mod number_of_questions
+        End If
+
+    End If
+
+    Wait for 1 second
+
+End Repeat
+
+End

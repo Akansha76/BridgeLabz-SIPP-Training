@@ -1,0 +1,53 @@
+CLASS Doctor
+    ATTRIBUTES:
+        name
+        specialization
+
+    CONSTRUCTOR(name, specialization)
+        SET name
+        SET specialization
+END CLASS
+
+CLASS Hospital
+    ATTRIBUTES:
+        departmentMap  
+
+    CONSTRUCTOR()
+        CREATE empty departmentMap
+
+    METHOD addDoctor(departmentName, doctor)
+        IF departmentName NOT IN departmentMap THEN
+            CREATE empty list in departmentMap for departmentName
+        END IF
+        ADD doctor to departmentMap[departmentName]
+
+    METHOD getDoctorsBySpecialization(departmentName, specialization) RETURNS LIST
+        CREATE empty list called filteredDoctors
+        IF departmentName IN departmentMap THEN
+            FOR EACH doctor IN departmentMap[departmentName]
+                IF doctor.specialization EQUALS specialization THEN
+                    ADD doctor to filteredDoctors
+                END IF
+            END FOR
+        END IF
+        RETURN filteredDoctors
+END CLASS
+
+PROGRAM
+    CREATE hospital AS Hospital
+
+    CREATE doc1 AS Doctor("Dr. Smith", "Cardiology")
+    CREATE doc2 AS Doctor("Dr. Lee", "Neurology")
+    CREATE doc3 AS Doctor("Dr. Kumar", "Cardiology")
+
+    CALL hospital.addDoctor("Heart", doc1)
+    CALL hospital.addDoctor("Brain", doc2)
+    CALL hospital.addDoctor("Heart", doc3)
+
+    cardiologists = CALL hospital.getDoctorsBySpecialization("Heart", "Cardiology")
+
+    PRINT "Cardiologists in Heart department:"
+    FOR EACH doc IN cardiologists
+        PRINT doc.name
+    END FOR
+END PROGRAM

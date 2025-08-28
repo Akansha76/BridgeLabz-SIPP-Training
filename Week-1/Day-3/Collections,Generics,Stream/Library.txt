@@ -1,0 +1,52 @@
+CLASS Book
+    ATTRIBUTES:
+        title : STRING
+        year : INTEGER
+        rating : FLOAT
+
+    CONSTRUCTOR(title, year, rating)
+        SET title
+        SET year
+        SET rating
+END CLASS
+
+CLASS Library
+    ATTRIBUTES:
+        books : LIST of Book
+
+    CONSTRUCTOR()
+        CREATE empty books list
+
+    METHOD addBook(book)
+        ADD book to books
+
+    METHOD filterBooks()
+        CREATE empty filteredBooks list
+        FOR EACH book IN books
+            IF book.year > 2015 AND book.rating > 4.5 THEN
+                ADD book to filteredBooks
+            END IF
+        END FOR
+        RETURN filteredBooks
+END CLASS
+
+PROGRAM
+    CREATE library AS Library
+
+    CREATE book1 AS Book("Book One", 2018, 4.6)
+    CREATE book2 AS Book("Book Two", 2014, 4.8)
+    CREATE book3 AS Book("Book Three", 2020, 4.4)
+    CREATE book4 AS Book("Book Four", 2019, 4.7)
+
+    CALL library.addBook(book1)
+    CALL library.addBook(book2)
+    CALL library.addBook(book3)
+    CALL library.addBook(book4)
+
+    filteredBooks = CALL library.filterBooks()
+
+    PRINT "Filtered Books:"
+    FOR EACH book IN filteredBooks
+        PRINT book.title
+    END FOR
+END PROGRAM

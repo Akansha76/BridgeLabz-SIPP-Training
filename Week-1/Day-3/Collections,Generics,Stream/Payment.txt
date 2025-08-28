@@ -1,0 +1,28 @@
+CLASS Transaction<T>
+    ATTRIBUTES:
+        transactionId : STRING
+        amount : FLOAT
+        paymentMethod : T
+
+    CONSTRUCTOR(transactionId, amount, paymentMethod)
+        SET transactionId
+        SET amount
+        SET paymentMethod
+
+    METHOD process()
+        PRINT "Processing", paymentMethod, "transaction with ID", transactionId, "for amount", amount
+END CLASS
+
+PROGRAM
+    CREATE upiDetails AS "UPI Payment"
+    CREATE cardDetails AS "Card Payment"
+    CREATE netBankingDetails AS "NetBanking Payment"
+
+    CREATE upiTransaction AS Transaction<STRING>("TXN001", 500, upiDetails)
+    CREATE cardTransaction AS Transaction<STRING>("TXN002", 1500, cardDetails)
+    CREATE netBankingTransaction AS Transaction<STRING>("TXN003", 2000, netBankingDetails)
+
+    CALL upiTransaction.process()
+    CALL cardTransaction.process()
+    CALL netBankingTransaction.process()
+END PROGRAM

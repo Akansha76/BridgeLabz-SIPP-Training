@@ -1,0 +1,42 @@
+INTERFACE Searchable
+    METHOD search(keyword)
+
+INTERFACE Printable
+    METHOD printReport()
+
+CLASS BloodTestReport IMPLEMENTS Searchable, Printable
+    ATTRIBUTES:
+        patientName
+        results
+
+    METHOD search(keyword)
+        RETURN keyword in results or patientName
+
+    METHOD printReport()
+        PRINT "Blood Test Report for", patientName
+        PRINT results
+
+CLASS XRayReport IMPLEMENTS Searchable, Printable
+    ATTRIBUTES:
+        patientName
+        imageDetails
+
+    METHOD search(keyword)
+        RETURN keyword in imageDetails or patientName
+
+    METHOD printReport()
+        PRINT "X-Ray Report for", patientName
+        PRINT imageDetails
+
+PROGRAM
+    CREATE report1 AS BloodTestReport()
+    CREATE report2 AS XRayReport()
+
+    CREATE reports AS LIST of Printable
+
+    ADD report1 TO reports
+    ADD report2 TO reports
+
+    FOR EACH report IN reports
+        CALL report.printReport()
+END PROGRAM

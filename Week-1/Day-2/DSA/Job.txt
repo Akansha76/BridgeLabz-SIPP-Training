@@ -1,0 +1,36 @@
+
+
+CLASS JobScheduler
+    ATTRIBUTES:
+        jobList 
+
+    CONSTRUCTOR()
+        CREATE empty jobList
+
+    METHOD addJob(job)
+        ADD job to jobList
+
+    METHOD sortJobs()
+        SORT jobList by:
+            first by deadline (smallest first)
+            if deadlines are equal, then by processingTime (smallest first)
+
+    METHOD runJobs()
+        CALL sortJobs()
+        FOR each job in jobList
+            PRINT "Running", job.name, "for", job.processingTime, "hours"
+END CLASS
+
+PROGRAM
+    CREATE scheduler as JobScheduler
+
+    CREATE jobA as Job("JobA", 5, 2)
+    CREATE jobB as Job("JobB", 3, 4)
+    CREATE jobC as Job("JobC", 3, 1)
+
+    CALL scheduler.addJob(jobA)
+    CALL scheduler.addJob(jobB)
+    CALL scheduler.addJob(jobC)
+
+    CALL scheduler.runJobs()
+END PROGRAM

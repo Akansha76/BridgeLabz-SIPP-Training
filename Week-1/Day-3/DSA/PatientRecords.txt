@@ -1,0 +1,15 @@
+CREATE empty hashMap patientRecords
+
+//Add
+ADD patientRecords["P001"] = Patient("John", 30)
+ADD patientRecords["P002"] = Patient("Mary", 25)
+
+//Retrieve
+patient = patientRecords["P001"]
+PRINT patient.name
+
+// Updating
+patientRecords["P002"].age = 26
+
+// Deleting 
+REMOVE patientRecords["P001"]

@@ -1,0 +1,58 @@
+CLASS Customer
+    ATTRIBUTES:
+        name
+        address
+
+    CONSTRUCTOR(name, address)
+        SET name
+        SET address
+END CLASS
+
+CLASS Restaurant
+    ATTRIBUTES:
+        name
+        location
+
+    CONSTRUCTOR(name, location)
+        SET name
+        SET location
+END CLASS
+
+CLASS DeliveryBoy
+    ATTRIBUTES:
+        name
+        phoneNumber
+
+    CONSTRUCTOR(name, phoneNumber)
+        SET name
+        SET phoneNumber
+END CLASS
+
+CLASS Order
+    ATTRIBUTES:
+        customer : Customer
+        restaurant : Restaurant
+        deliveryBoy : DeliveryBoy
+        orderDetails
+
+    CONSTRUCTOR(customer, restaurant, deliveryBoy, orderDetails)
+        SET customer
+        SET restaurant
+        SET deliveryBoy
+        SET orderDetails
+
+    METHOD displayOrder()
+        PRINT "Customer:", customer.name, customer.address
+        PRINT "Restaurant:", restaurant.name, restaurant.location
+        PRINT "Delivery Boy:", deliveryBoy.name, deliveryBoy.phoneNumber
+        PRINT "Order Details:", orderDetails
+END CLASS
+
+PROGRAM
+    CREATE cust AS Customer("Alice", "123 Street")
+    CREATE rest AS Restaurant("FoodPlace", "Downtown")
+    CREATE delBoy AS DeliveryBoy("Bob", "9998887777")
+
+    CREATE order AS Order(cust, rest, delBoy, "2 Burgers, 1 Coke")
+    CALL order.displayOrder()
+END PROGRAM

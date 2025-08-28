@@ -1,0 +1,19 @@
+FUNCTION solveMaze(maze, x, y, solution)
+    IF x, y is goal THEN
+        MARK solution[x][y] = 1
+        RETURN TRUE
+
+    IF maze[x][y] is safe to move THEN
+        MARK solution[x][y] = 1
+
+        IF solveMaze(maze, x+1, y, solution) THEN
+            RETURN TRUE
+
+        IF solveMaze(maze, x, y+1, solution) THEN
+            RETURN TRUE
+
+        MARK solution[x][y] = 0 
+        RETURN FALSE
+
+    RETURN FALSE
+END FUNCTION

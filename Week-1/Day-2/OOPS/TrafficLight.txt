@@ -1,0 +1,23 @@
+ENUM TrafficLight { RED, YELLOW, GREEN }
+
+CLASS TrafficSignal
+    VARIABLE currentLight = RED
+
+    METHOD switchLight()
+        IF currentLight == RED
+            currentLight = GREEN
+        ELSE IF currentLight == GREEN
+            currentLight = YELLOW
+        ELSE IF currentLight == YELLOW
+            currentLight = RED
+        END IF
+    END METHOD
+
+    METHOD runSimulation()
+        LOOP forever
+            PRINT currentLight
+            WAIT 5 seconds
+            CALL switchLight()
+        END LOOP
+    END METHOD
+END CLASS

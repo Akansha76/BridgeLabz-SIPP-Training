@@ -1,0 +1,42 @@
+CLASS Item
+    ATTRIBUTES:
+        name
+        price
+
+    CONSTRUCTOR(name, price)
+        SET name
+        SET price
+END CLASS
+
+CLASS ShoppingCart
+    ATTRIBUTES:
+        itemsList  
+
+    CONSTRUCTOR()
+        CREATE empty itemsList
+
+    METHOD addItem(item)
+        ADD item to itemsList
+
+    GENERIC METHOD calculateTotalPrice()
+        SET total = 0
+        FOR EACH item IN itemsList
+            total = total + item.price
+        END FOR
+        RETURN total
+END CLASS
+
+PROGRAM
+    CREATE cart AS ShoppingCart
+
+    CREATE item1 AS Item("Shoes", 50)
+    CREATE item2 AS Item("Shirt", 30)
+    CREATE item3 AS Item("Hat", 20)
+
+    CALL cart.addItem(item1)
+    CALL cart.addItem(item2)
+    CALL cart.addItem(item3)
+
+    totalPrice = CALL cart.calculateTotalPrice()
+    PRINT "Total Price:", totalPrice
+END PROGRAM
