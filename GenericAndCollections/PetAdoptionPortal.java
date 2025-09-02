@@ -37,10 +37,10 @@ class Pet {
 }
 
 // PetPortal class with Generics
-class PetPortal<T extends Pet> {
+class PetPortal<Pet extends pet> {
     private List<T> pets = new ArrayList<>();
 
-    public void addPet(T pet) {
+    public void addPet(Pet pet) {
         pets.add(pet);
     }
 
