@@ -36,17 +36,19 @@ class Pet {
     }
 }
 
-// PetPortal class with Generics
-class PetPortal<Pet extends pet> {
+//  Fixed PetPortal with Generics
+class PetPortal<T extends Pet> {
     private List<T> pets = new ArrayList<>();
 
-    public void addPet(Pet pet) {
+    public void addPet(T pet) {
         pets.add(pet);
     }
 
     public List<T> filterAvailablePets(String type, int maxAge) {
         return pets.stream()
-                   .filter(p -> !p.isAdopted() && p.getType().equalsIgnoreCase(type) && p.getAge() <= maxAge)
+                   .filter(p -> !p.isAdopted()
+                             && p.getType().equalsIgnoreCase(type)
+                             && p.getAge() <= maxAge)
                    .collect(Collectors.toList());
     }
 
